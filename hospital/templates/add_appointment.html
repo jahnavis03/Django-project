@@ -1,0 +1,32 @@
+{% include 'base.html' %}
+
+{% include 'navigation.html' %}
+{% block content %}
+{% if error == 'yes' %}
+<script> 
+    alert('saved succcessfully');
+    window.location = "{% url 'view_appointment' %}";
+</script>
+{% endif %}
+{% if error == 'no' %}
+<script>
+    alert('something went wrong');
+</script>
+{% endif  %} 
+<div class="container">
+    <h3 class="text-center" >ADD APPOINTMENT</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Doctor Name</h5></label>
+        <input type ="text" class=" form-control" name="doctor"required/>
+        <label>Patient Name</h5></label>
+        <input type ="text" class=" form-control" name="patient"required/>
+        <label> appointed date</label>
+        <input type ="date" class=" form-control" name="date"required/>
+        <label> appointed time</label>
+        <input type ="text" class=" form-control" name="time"required/>
+        <input type ="submit" value="SUBMIT" class="form-control btn btn-primary">
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% include 'base.html' %}
+
+{% include 'navigation.html' %}
+{% block content %}
+{% if error == 'no' %}
+<script> 
+    alert('saved succcessfully');
+    window.location = "{% url 'view_doctor' %}";
+</script>
+{% endif %}
+{% if error == 'yes' %}
+<script>
+    alert('something went wrong');
+</script>
+{% endif  %} 
+<div class="container">
+    <h3 class="text-center" >ADD DOCTOR</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <label> Doctor ID</label>
+        <input type ="text" class=" form-control" name="ID" required/>
+        <label>Doctor Name</h5></label>
+        <input type ="text" class=" form-control" name="Name" required/>
+        <label> Mobile</label>
+        <input type ="text" class=" form-control" name="mobile" required/>
+        <label> Specialisation</label>
+        <input type ="text" class=" form-control" name="special" required/>
+        <input type ="submit" value="SUBMIT" class="form-control btn btn-primary">
+    </form>
+</div>
+
+{% endblock %}

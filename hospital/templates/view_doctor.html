@@ -1,0 +1,51 @@
+{% include 'base.html' %}
+
+{% include 'navigation.html' %}
+	{%block body %}
+	{%load static%}
+<style>body{background-image:url{% static 'images/idoctor.jpg'%};
+width:100%;
+height:100%;
+
+
+}
+.table{ width:100%;
+
+    background-color:#00b3b3;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+
+</style>
+<div class="container" style="margin-top:50px">
+	<h2 class="text-center">DOCTORS</h2>
+	<br>
+</div>
+<table class="table table-hover" id="docdoc">
+	<thead>
+	<tr>
+		<th>Doctor ID</th>
+		<th>Doctor Name</th>
+		<th>Contact</th>
+		<th>Specialisation</th>
+
+	</tr>
+	</thead>
+	<tbody>
+	{% for i in doc %}
+	<tr>
+		<td>{{i.ID}}</td>							
+		<td>{{i.Name}}</td>
+		<td>{{i.mobile}}</td>
+		<td>{{i.special}}</td>
+
+
+	</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+
+
+
+
+
+{% endblock %}

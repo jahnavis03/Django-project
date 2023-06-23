@@ -1,0 +1,28 @@
+{% include 'base.html' %}
+
+{% include 'navigation.html' %}
+{% block content %}
+{% if error == 'no' %}
+<script> 
+    alert('logged in succcessfully');
+    window.location = "{% url 'home' %}";
+</script>
+{% endif %}
+{% if error == 'yes' %}
+<script>
+    alert('invalid login try again');
+</script>
+{% endif  %} 
+<div class="container">
+    <h3 class="text-center" >ADMIN LOGIN</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <label><h5> Admin Name</h5></label>
+        <input type ="text" class=" form-control" name="uname"/>
+        <label> <h5>Password</h5></label>
+        <input type ="password" class=" form-control" name="pwd"/>
+        <input type ="submit" value="Login" class="form-control btn btn-primary">
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% include 'base.html' %}
+
+{% include 'navigation.html' %}
+{%block body %}
+	{%load static%}
+<div class="container" style="margin-top:50px">
+	<h2 class="text-center">PATIENTS</h2>
+	<br>
+</div>
+<style>body{background-image:url({% static 'images/img_0.png'%});
+width:100%;
+height:100%;}
+
+    .table{ width:100%;
+
+    background-color:white;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+    .table{ width:100%;
+
+    background-color:#00b3b3;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+
+</style>
+
+<table class="table table-hover" id="docdoc" >
+	<thead>
+	<tr>
+		<th>Patient Name</th>
+		<th>Gender</th>
+		<th>contact</th>
+		<th>city</th>
+
+	</tr>
+	</thead>
+	<tbody>
+	{% for i in pat %}
+	<tr>
+		<td>{{i.name}}</td>
+		<td>{{i.gender}}</td>
+		<td>{{i.mobile}}</td>
+		<td>{{i.address}}</td>
+
+
+	</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+
+
+
+
+
+{% endblock %}
